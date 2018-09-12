@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Media Player</string>
+    <string name="title_fragSong">Songs</string>
+    <string name="title_fragArtist">Artists</string>
+    <string name="title_fragAlbums">Albums</string>
+    <string name="title_fragGenres">Genres</string>
+    <string name="title_fragPlaylists">Playlists</string>
+</resources>
