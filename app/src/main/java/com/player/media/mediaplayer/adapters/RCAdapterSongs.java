@@ -17,7 +17,7 @@ import com.player.media.mediaplayer.models.Song;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class RCAdapterSongs extends RecyclerView.Adapter<RCAdapterSongs.ViewHolder> {
+public class RCAdapterSongs extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<Song> arrSong;
     private Context context;
@@ -27,6 +27,9 @@ public class RCAdapterSongs extends RecyclerView.Adapter<RCAdapterSongs.ViewHold
 
     private SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
 
+    public static final int SECTION_VIEW = 0;
+    public static final int CONTENT_VIEW = 1;
+
     public RCAdapterSongs(ArrayList<Song> arrSong, Context context, OnClickSong mSongOnClickListener) {
         this.arrSong = arrSong;
         this.context = context;
@@ -35,9 +38,14 @@ public class RCAdapterSongs extends RecyclerView.Adapter<RCAdapterSongs.ViewHold
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(context);
+
+        if(viewType == SECTION_VIEW){
+            itemView = inflater.inflate(R.layout.item_header_title, parent, false);
+            return new ViewHolderHearder(itemView);
+        }
 
         itemView = inflater.inflate(R.layout.item_song, parent, false);
 
@@ -45,18 +53,51 @@ public class RCAdapterSongs extends RecyclerView.Adapter<RCAdapterSongs.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 
-        holder.txtNameSong.setText(arrSong.get(position).getNameSong());
+        if (SECTION_VIEW == getItemViewType(position)) {
+
+            ViewHolderHearder sectionHeaderViewHolder = (ViewHolderHearder) holder;
+            sectionHeaderViewHolder.txtHearder.setText(arrSong.get(position).getTitle());
+            return;
+        }
+
+        ViewHolder viewHolder = (ViewHolder) holder;
+
+        viewHolder.txtNameSong.setText(arrSong.get(position).getNameSong());
         String artistTime = arrSong.get(position).getNameArtist() + " - " + format.format(arrSong.get(position).getTimeMusic());
-        holder.txtArtistTime.setText(artistTime);
+        viewHolder.txtArtistTime.setText(artistTime);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSongOnClickListener.OnClickSong(position, arrSong.get(position));
             }
         });
+    }
+
+//    @Override
+//    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+//
+//        holder.txtNameSong.setText(arrSong.get(position).getNameSong());
+//        String artistTime = arrSong.get(position).getNameArtist() + " - " + format.format(arrSong.get(position).getTimeMusic());
+//        holder.txtArtistTime.setText(artistTime);
+//
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mSongOnClickListener.OnClickSong(position, arrSong.get(position));
+//            }
+//        });
+//    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if(arrSong.get(position).isSelection()){
+            return SECTION_VIEW;
+        } else {
+            return  CONTENT_VIEW;
+        }
     }
 
     @Override
@@ -76,6 +117,17 @@ public class RCAdapterSongs extends RecyclerView.Adapter<RCAdapterSongs.ViewHold
             txtNameSong = itemView.findViewById(R.id.txtTenBaiHat_itemSong);
             txtArtistTime = itemView.findViewById(R.id.txtArtist_itemSong);
             btnMore = itemView.findViewById(R.id.btnMore_itemSong);
+        }
+    }
+
+    private class ViewHolderHearder extends RecyclerView.ViewHolder{
+
+        TextView txtHearder;
+
+        public ViewHolderHearder(View itemView) {
+            super(itemView);
+
+            txtHearder = itemView.findViewById(R.id.headerTitleTextview);
         }
     }
 }

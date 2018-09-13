@@ -31,7 +31,7 @@ public class FragmentSong extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        mrootView = inflater.inflate(R.layout.fragment_songs,container, false);
+        mrootView = inflater.inflate(R.layout.fragment_songs, container, false);
 
         InitView(mrootView);
         InitArrSong();
@@ -54,7 +54,32 @@ public class FragmentSong extends Fragment {
     private void InitArrSong() {
         arrSong = new ArrayList<>();
 
-        arrSong.addAll(DungLib.getSongList(context));
+        ArrayList<Song> arr = new ArrayList<>();
+
+        arr.addAll(DungLib.getSongList(context));
+
+        String lastHeader = "";
+
+        for (int i = 0; i < arr.size(); i++) {
+
+            String h1 = String.valueOf(arr.get(i).getNameSong().charAt(0)).toUpperCase();
+//            String h2 = String.valueOf(arr.get(i + 1).getNameSong().charAt(0)).toUpperCase();
+            if (!h1.equals(lastHeader)) {
+                lastHeader = h1;
+                arrSong.add(new Song(h1, true));
+            }
+            arrSong.add(arr.get(i));
+//            if (i < arr.size() - 1) {
+//                String h1 = String.valueOf(arr.get(i).getNameSong().charAt(0)).toUpperCase();
+//                String h2 = String.valueOf(arr.get(i + 1).getNameSong().charAt(0)).toUpperCase();
+//                if (!h1.equals(h2)) {
+//                    arrSong.add(new Song(h1, true));
+//                }
+//                arrSong.add(arr.get(i));
+//            } else {
+//                arrSong.add(arr.get(i));
+//            }
+        }
     }
 
     private void InitView(View mrootView) {
