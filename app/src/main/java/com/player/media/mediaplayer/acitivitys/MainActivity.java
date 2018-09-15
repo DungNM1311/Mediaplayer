@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.player.media.mediaplayer.R;
 import com.player.media.mediaplayer.adapters.TabAdapter;
@@ -19,6 +20,7 @@ import com.player.media.mediaplayer.fragments.FragmentArtist;
 import com.player.media.mediaplayer.fragments.FragmentGenres;
 import com.player.media.mediaplayer.fragments.FragmentPlayList;
 import com.player.media.mediaplayer.fragments.FragmentSong;
+import com.player.media.mediaplayer.utils.DungLib;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_FOLDER);
         } else {
             initView();
+            Log.e("12213", "onCreate: " +  DungLib.getArtistsList(this).size());
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
-            case REQUEST_CODE_FOLDER:{
+        switch (requestCode) {
+            case REQUEST_CODE_FOLDER: {
                 initView();
                 break;
             }
@@ -61,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
         tb_main.setupWithViewPager(vp_main);
 
-        tabAdapter.addViewFragment(new FragmentSong(),      this.getResources().getString(R.string.title_fragSong));
-        tabAdapter.addViewFragment(new FragmentArtist(),    this.getResources().getString(R.string.title_fragArtist));
-        tabAdapter.addViewFragment(new FragmentAlbum(),     this.getResources().getString(R.string.title_fragAlbums));
-        tabAdapter.addViewFragment(new FragmentGenres(),    this.getResources().getString(R.string.title_fragGenres));
-        tabAdapter.addViewFragment(new FragmentPlayList(),  this.getResources().getString(R.string.title_fragPlaylists));
+        tabAdapter.addViewFragment(new FragmentSong(), this.getResources().getString(R.string.title_fragSong));
+        tabAdapter.addViewFragment(new FragmentArtist(), this.getResources().getString(R.string.title_fragArtist));
+        tabAdapter.addViewFragment(new FragmentAlbum(), this.getResources().getString(R.string.title_fragAlbums));
+        tabAdapter.addViewFragment(new FragmentGenres(), this.getResources().getString(R.string.title_fragGenres));
+        tabAdapter.addViewFragment(new FragmentPlayList(), this.getResources().getString(R.string.title_fragPlaylists));
     }
 }
