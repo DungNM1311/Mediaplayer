@@ -5,4 +5,5 @@
     <string name="title_fragAlbums">Albums</string>
     <string name="title_fragGenres">Genres</string>
     <string name="title_fragPlaylists">Playlists</string>
+    <string name="song">bài hát</string>
 </resources>

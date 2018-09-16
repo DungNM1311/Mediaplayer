@@ -3,7 +3,6 @@ package com.player.media.mediaplayer.utils;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.MergeCursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.widget.DividerItemDecoration;
@@ -11,7 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.player.media.mediaplayer.models.Artists;
+import com.player.media.mediaplayer.models.MyArtists;
 import com.player.media.mediaplayer.models.Song;
 
 import java.util.ArrayList;
@@ -88,16 +87,15 @@ public class DungLib {
         return  arrSong;
     }
 
-    public static ArrayList<Artists> getArtistsList(Context context){
+    public static ArrayList<MyArtists> getArtistsList(Context context){
 
 
         ContentResolver musicResolver = context.getContentResolver();
 
         Uri musicExUri = MediaStore.Audio.Artists.EXTERNAL_CONTENT_URI;
-        String selection = MediaStore.Audio.ArtistColumns.ARTIST;
         String sortOder = "LOWER(" + MediaStore.Audio.ArtistColumns.ARTIST + ") ASC";
 
-        ArrayList<Artists>  arrArts = new ArrayList<>();
+        ArrayList<MyArtists>  arrArts = new ArrayList<>();
         Cursor mArtCursor = musicResolver.query(musicExUri, null, null, null, sortOder);
 
         if (mArtCursor.moveToFirst()) {
@@ -110,9 +108,8 @@ public class DungLib {
                 String name = mArtCursor.getString(nameArt);
                 int  id  = mArtCursor.getInt(keyArt);
                 int numAlbums = mArtCursor.getInt(numOfAlbums);
-                int numTracks = mArtCursor.getInt(numOfTracks);
                 Log.e("12635", "getArtistsList: " + numAlbums  +  " " + name);
-                arrArts.add(new Artists(id, name));
+                arrArts.add(new MyArtists(id, name, numAlbums));
 
             } while (mArtCursor.moveToNext());
         }

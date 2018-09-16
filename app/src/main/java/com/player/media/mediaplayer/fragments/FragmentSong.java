@@ -69,16 +69,6 @@ public class FragmentSong extends Fragment {
                 arrSong.add(new Song(h1, true));
             }
             arrSong.add(arr.get(i));
-//            if (i < arr.size() - 1) {
-//                String h1 = String.valueOf(arr.get(i).getNameSong().charAt(0)).toUpperCase();
-//                String h2 = String.valueOf(arr.get(i + 1).getNameSong().charAt(0)).toUpperCase();
-//                if (!h1.equals(h2)) {
-//                    arrSong.add(new Song(h1, true));
-//                }
-//                arrSong.add(arr.get(i));
-//            } else {
-//                arrSong.add(arr.get(i));
-//            }
         }
     }
 

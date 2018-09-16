@@ -4,11 +4,13 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.player.media.mediaplayer.R;
 import com.player.media.mediaplayer.interfaces.OnClickSong;
@@ -23,7 +25,9 @@ public class RCAdapterSongs extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private Context context;
     private OnClickSong mSongOnClickListener;
 
-    private View itemView;
+    private View songView;
+    private View sectionView;
+    private View artView;
 
     private SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
 
@@ -42,14 +46,20 @@ public class RCAdapterSongs extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        if(viewType == SECTION_VIEW){
-            itemView = inflater.inflate(R.layout.item_header_title, parent, false);
-            return new ViewHolderHearder(itemView);
+        switch (viewType){
+            case SECTION_VIEW:{
+                sectionView = inflater.inflate(R.layout.item_header_title, parent, false);
+                return new ViewHolderHearder(sectionView);
+            }
+            case CONTENT_VIEW:{
+                songView = inflater.inflate(R.layout.item_song, parent, false);
+                return new ViewHolder(songView);
+            }
+            default :{
+                artView = inflater.inflate(R.layout.item_song, parent, false);
+                return new ViewHolder(artView);
+            }
         }
-
-        itemView = inflater.inflate(R.layout.item_song, parent, false);
-
-        return new ViewHolder(itemView);
     }
 
     @Override
@@ -75,21 +85,6 @@ public class RCAdapterSongs extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
         });
     }
-
-//    @Override
-//    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-//
-//        holder.txtNameSong.setText(arrSong.get(position).getNameSong());
-//        String artistTime = arrSong.get(position).getNameArtist() + " - " + format.format(arrSong.get(position).getTimeMusic());
-//        holder.txtArtistTime.setText(artistTime);
-//
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mSongOnClickListener.OnClickSong(position, arrSong.get(position));
-//            }
-//        });
-//    }
 
     @Override
     public int getItemViewType(int position) {
