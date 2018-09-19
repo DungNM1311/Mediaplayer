@@ -7,9 +7,9 @@
     tools:context=".acitivitys.MainActivity">
 
     <LinearLayout
-        android:background="@color/bg_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/bg_main"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -17,46 +17,46 @@
             android:layout_height="@dimen/_20sdp">
 
             <ImageView
-                android:layout_alignParentStart="true"
                 android:id="@+id/btnMenu_main"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentStart="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:padding="@dimen/_3sdp"
-                android:src="@drawable/icon_menu"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp" />
+                android:src="@drawable/icon_menu" />
 
             <ImageView
-                android:layout_toStartOf="@id/btnMore_main"
                 android:id="@+id/btnSearch"
-                android:padding="@dimen/_3sdp"
-                android:src="@drawable/icon_search"
                 android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp" />
+                android:layout_height="@dimen/_20sdp"
+                android:layout_toStartOf="@id/btnMore_main"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/icon_search" />
 
             <ImageView
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_alignParentEnd="true"
                 android:id="@+id/btnMore_main"
-                android:padding="@dimen/_4sdp"
-                android:src="@drawable/icon_more"
                 android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp" />
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/icon_more" />
 
         </RelativeLayout>
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_3sdp"
-                android:layout_gravity="bottom"
-                android:textSize="@dimen/_24sdp"
-                android:textColor="#fff"
                 android:text="Songs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textColor="#fff"
+                android:textSize="@dimen/_24sdp" />
 
         </LinearLayout>
 
@@ -64,32 +64,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-                <android.support.design.widget.TabLayout
-                    app:tabMode="fixed"
-                    android:paddingBottom="@dimen/_50sdp"
-                    android:layout_gravity="top"
-                    android:id="@+id/tb_main"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_80sdp"
-                    app:tabTextColor="#ee92c0"
-                    app:tabSelectedTextColor="#fff"
-                    app:tabTextAppearance="@style/MineCustomTabText"
-                    android:background="@color/background_tablayout"
-                    android:overScrollMode="never"/>
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tb_main"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_gravity="top"
+                android:background="@color/background_tablayout"
+                android:overScrollMode="never"
+                android:paddingBottom="@dimen/_50sdp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="#fff"
+                app:tabTextAppearance="@style/MineCustomTabText"
+                app:tabTextColor="#ee92c0" />
 
-                <android.support.v4.view.ViewPager
-                    android:background="#fff"
-                    android:layout_marginTop="@dimen/_40sdp"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_20sdp"
-                    android:id="@+id/vp_main"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:background="#fff">
 
-                </android.support.v4.view.ViewPager>
+            </android.support.v4.view.ViewPager>
 
         </RelativeLayout>
-
 
 
     </LinearLayout>

@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_FOLDER);
         } else {
             initView();
-            Log.e("12213", "onCreate: " +  DungLib.getArtistsList(this).size());
+            DungLib.getAlbums(this);
         }
     }
 

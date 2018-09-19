@@ -67,7 +67,7 @@ public class RCAdapterArtists extends RecyclerView.Adapter<RecyclerView.ViewHold
         holerArt.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mClickArtListtener.OnClickArt(position, arrArt.get(position));
+                mClickArtListtener.OnClick(position);
             }
         });
 

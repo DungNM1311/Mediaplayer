@@ -17,6 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_toEndOf="@id/imgSong"
+        android:ellipsize="middle"
+        android:singleLine="true"
         android:text="Tên Bài Hát"
         android:textColor="#fff"
         android:textSize="@dimen/_12sdp"
@@ -29,6 +31,8 @@
         android:layout_below="@id/txtTenBaiHat_itemSong"
         android:layout_marginTop="@dimen/_4sdp"
         android:layout_toEndOf="@id/imgSong"
+        android:ellipsize="middle"
+        android:singleLine="true"
         android:text="Nhạc sĩ - 00:03"
         android:textColor="#fff"
         android:textSize="@dimen/_9sdp" />
@@ -39,8 +43,8 @@
         android:layout_height="@dimen/_55sdp"
         android:layout_alignParentEnd="true"
         android:paddingBottom="@dimen/_18sdp"
-        android:paddingStart="@dimen/_30sdp"
         android:paddingEnd="0dp"
+        android:paddingStart="@dimen/_30sdp"
         android:paddingTop="@dimen/_18sdp"
         android:src="@drawable/icon_more" />
 

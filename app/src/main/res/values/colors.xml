@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="background_tablayout">#e02f80</color>
-    <color name="bg_main">#22272c</color>
+    <color name="bg_main">#24292e</color>
     <color name="bg_frag">#24292e</color>
 </resources>

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +42,7 @@ public class FragmentArtist  extends Fragment{
 
         adapter = new RCAdapterArtists(context, arrArt, new MyOnClick() {
             @Override
-            public void OnClickArt(int position, MyArtists art) {
+            public void OnClick(int position) {
 
             }
         });
@@ -70,8 +71,12 @@ public class FragmentArtist  extends Fragment{
                 lastHeader = h1;
                 arrArt.add(new MyArtists(h1, true));
             }
+
+            Log.e("1213241", "InitArrArt: " + arr.get(i).getArrSongArt().size() + arr.get(i).getNameArtist());
+            Log.e("213214234", "InitArrArt: " + arr.get(i).getTotalSong()+ arr.get(i).getNameArtist());
             arrArt.add(arr.get(i));
         }
+
     }
 
     /*TODO: Khởi tạo view Fragment Artist*/

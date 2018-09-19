@@ -3,7 +3,7 @@ package com.player.media.mediaplayer.models;
 import java.util.ArrayList;
 
 public class MyArtists {
-    private int idArtist;
+    private String idArtist;
     private String nameArtist;
     private ArrayList<Song> arrSongArt;
     private int totalSong;
@@ -15,18 +15,25 @@ public class MyArtists {
         this.titleHeader = titleHeader;
     }
 
-    public MyArtists(int idArtist, String nameArtist) {
+    public MyArtists(String idArtist, String nameArtist) {
         this.idArtist = idArtist;
         this.nameArtist = nameArtist;
     }
 
-    public MyArtists(int idArtist, String nameArtist, int totalSong) {
+    public MyArtists(String idArtist, String nameArtist, int totalSong) {
         this.idArtist = idArtist;
         this.nameArtist = nameArtist;
         this.totalSong = totalSong;
     }
 
-    public MyArtists(int idArtist, String nameArtist, ArrayList<Song> arrSongArt) {
+    public MyArtists(String idArtist, String nameArtist, int totalSong, ArrayList<Song> arrSongArt) {
+        this.idArtist = idArtist;
+        this.nameArtist = nameArtist;
+        this.arrSongArt = arrSongArt;
+        this.totalSong = totalSong;
+    }
+
+    public MyArtists(String idArtist, String nameArtist, ArrayList<Song> arrSongArt) {
         this.idArtist = idArtist;
         this.nameArtist = nameArtist;
         this.arrSongArt = arrSongArt;
@@ -56,11 +63,11 @@ public class MyArtists {
         isSection = section;
     }
 
-    public int getIdArtist() {
+    public String getIdArtist() {
         return idArtist;
     }
 
-    public void setIdArtist(int idArtist) {
+    public void setIdArtist(String idArtist) {
         this.idArtist = idArtist;
     }
 

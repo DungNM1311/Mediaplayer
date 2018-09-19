@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_75sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:background="@color/bg_frag">
+
+    <ImageView
+        android:id="@+id/imgDisk_itemAlbum"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_marginStart="@dimen/_34sdp"
+        android:src="@drawable/icon_disk" />
+
+    <ImageView
+        android:id="@+id/imgAlbum_itemAlbum"
+        android:layout_width="@dimen/_75sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:background="#56d8f2"
+        android:padding="@dimen/_1sdp"
+        android:src="@drawable/icon_user" />
+
+    <TextView
+        android:id="@+id/txtNameAlbum_itemAlbum"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_toEndOf="@id/imgDisk_itemAlbum"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:text="Tên Album"
+        android:textColor="#fff"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtNameArt_itemAlbum"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNameAlbum_itemAlbum"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_toEndOf="@+id/imgDisk_itemAlbum"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:text="Tên nghệ sĩ"
+        android:textColor="#cfcfcf"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="normal" />
+
+    <ImageView
+        android:id="@+id/imgSong_itemAlbum"
+        android:layout_width="@dimen/_10sdp"
+        android:layout_height="@dimen/_10sdp"
+        android:layout_below="@id/txtNameArt_itemAlbum"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_toEndOf="@id/imgDisk_itemAlbum"
+        android:src="@drawable/icon_song" />
+
+    <TextView
+        android:id="@+id/txtTotalSong_itemAlbum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtNameArt_itemAlbum"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_toEndOf="@+id/imgSong_itemAlbum"
+        android:text="5 Bài hát"
+        android:textColor="#fff"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="normal" />
+
+    <ImageView
+        android:id="@+id/imgMore_itemAlbum"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_75sdp"
+        android:layout_alignParentEnd="true"
+        android:paddingBottom="@dimen/_10sdp"
+        android:paddingEnd="0dp"
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:src="@drawable/icon_more" />
+
+
+</RelativeLayout>
